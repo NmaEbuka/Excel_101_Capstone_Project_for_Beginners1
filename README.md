@@ -1,4 +1,4 @@
-<img width="715" height="30" alt="image" src="https://github.com/user-attachments/assets/6699afc0-fbc7-46b7-a563-223a09c51c35" /><img width="700" height="30" alt="image" src="https://github.com/user-attachments/assets/303aa53b-2b89-462f-96a0-ffff9623d71e" /># Excel_101_Capstone_Project_for_Beginners1
+# Excel_101_Capstone_Project_for_Beginners1
 Monthly Sales Tracker for a Small Retail Business
 ## 1. Project Brief
 This project is to test basic skills in Excel. It is beginner-friendly. It is also business-focused and can be used as a portfolio item for data analyst beginners.
@@ -30,15 +30,50 @@ Above Revenue? | Text| Formula: =IF(F17>50000,"Yes","No")
 |Unit price keeps changing because of the use of the RANDBETWEEN function| Copied and pasted the whole table as values in a new sheet. This became my working data | Copy & Paste (as value) | Total Revenue also kept changing because it was a derived value from unit sold|
 | After pasting the value from the previous step, dates change to the 'General' format | Changed the format of the date to the 'Short Date' format | The Number Tab in the Home ribbon | Dates cannot be worked with in the 'General' format for analysis |
 |The numbers in the Unit Price and Total revenue columns were in the General format | Changed the format to Currency and then the sign to the Nigerian Naira |The Number Tab in the Home ribbon | The analysis is a financial report of a Nigerian business. It makes sense for the price and revenue to be the Nigerian currency|
+
+This new sheet is called the "Working Data"
+
 #### Data Analysis
+On a new sheet called "Monthly Summary"
 Monthly KPIs:
-Total Revenue()
-Average Daily Revenue ()
-Highest Revenue ()
-Lowest Revenue ()
-Total days above revenue ()
-Revenue (Clothing)
-Revenue (Accessories)
-Revenue (Footwear)
+
+Total Revenue: SUM(Table1[Total Revenue]) 
+
+NB: Table 1 is the table containing the working data on the working data sheet.
+
+Total Revenue is the column.
+
+Average Daily Revenue: AVERAGE(Table1[Total Revenue])
+
+Highest Revenue: MAX(Table1[Total Revenue])
+
+Lowest Revenue: MIN(Table1[Total Revenue])
+
+Total days above revenue: COUNTIF(Table1[Above Average?], "Yes")
+
+Revenue (Clothing): =SUMIF(Table1[Product Category], "Clothing", Table1[Total Revenue])
+
+Revenue (Accessories): =SUMIF(Table1[Product Category], "Accessories", Table1[Total Revenue])
+
+Revenue (Footwear): SUMIF(Table1[Product Category], "Footwears", Table1[Total Revenue])
+#### Alternative Formula if the formula is typed instead of directly selecting the colomn from the table
+Total Revenue: SUM(F2:F32) 
+
+Average Daily Revenue: AVERAGE(F2:F32)
+
+Highest Revenue: MAX(F2:F32)
+
+Lowest Revenue: MIN(F2:F32)
+
+Total days above revenue: COUNTIF(G2:G32, "Yes")
+
+Revenue (Clothing): SUMIF(C2:C32, "Clothing", F2:F32)
+
+Revenue (Accessories): SUMIF(C2:C32, "Accessories", F2:F32)
+
+Revenue (Footwear): SUMIF(C2:C32, "Footwears", F2:F32)
+
+NB: This second set of formula work if the analysis is done on the same sheet as the working data.
+NB2: To check that the revenue for each product category is correct, calculate the sum of all three category. If it equals the total revenue, it is correct. Otherwise, recheck.
+
 ### Limitations
-### Time log
